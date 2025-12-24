@@ -1,0 +1,17 @@
+
+*.pyc
+.env
+logs/
+memory/
+data/
+node_modules/
+koboldcpp/
+storage/
+downloads/
+*.bin
+*.tar.gz
+__pycache__/
+logs/
+*.log
+.termux/
+.ssh/
