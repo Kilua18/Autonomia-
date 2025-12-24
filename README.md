@@ -54,14 +54,15 @@ Les pensées et états sont stockés en JSON pour :
 
 ## 📁 Structure du projet
 autonomia/ ├── main.py ├── requirements.txt ├── core/ │   └── consciousness_loop.py ├── docs/ │   ├── TECHNICAL_ANALYSIS.md │   ├── PHILOSOPHICAL_IMPLICATIONS.md │   └── THOUGHT_LOGS.md ├── data/ │   └── (logs et mémoire persistante) ├── media/ │   └── screenshots/ └── logs/
-Copier le code
 
 ---
 
 ## ▶️ Lancer le projet
 
-```bash
+
 python3 main.py
+
+
 Les cycles et logs sont créés automatiquement.
 ⚠️ Disclaimer éthique
 Ce projet ne vise pas à :
@@ -73,8 +74,5 @@ Utilisation : strictement éducative et expérimentale.
 📬 Contact
 Prochainement.
 🧩 Question ouverte : À partir de quand une simulation devient-elle expérience ?
-Copier le code
 
----
 
-## 💾 Sauvegarde dans nano
