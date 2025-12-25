@@ -1,17 +1,10 @@
-
-*.pyc
-.env
-logs/
-memory/
-data/
-node_modules/
-koboldcpp/
-storage/
-downloads/
-*.bin
-*.tar.gz
-__pycache__/
-logs/
-*.log
-.termux/
-.ssh/
+# Supprime les lignes avec data/ ou logs/ Sauvegarde (Ctrl+O, 
+# Entrée, Ctrl+X)*.pyc
+.env logs/ memory/ data/ node_modules/ koboldcpp/ storage/ 
+downloads/ *.bin *.tar.gz __pycache__/ logs/ *.log .termux/ .ssh/
+# Add TOUT
+git add data/ git add logs/ git add .
+# Commit
+git commit -m "Add data and logs - 394+ cycles complets"
+# Push
+git push origin main
