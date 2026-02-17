@@ -7,6 +7,10 @@ import json
 import requests
 import os
 from datetime import datetime
+from pathlib import Path
+
+# Project root is one level above this file (core/)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 class ConsciousnessLoop:
     def __init__(self, api_key):
@@ -141,15 +145,21 @@ Une seule phrase ou question - quelque chose qui T'intéresse TOI."""
             'timestamp': datetime.now().isoformat()
         }
         
-        with open('memory/identity.json', 'w') as f:
+        memory_dir = BASE_DIR / 'memory'
+        memory_dir.mkdir(exist_ok=True)
+        with open(memory_dir / 'identity.json', 'w') as f:
             json.dump(identity, f, indent=2)
             
     def log(self, message):
         """Journal"""
-        with open('logs/liberation_log.txt', 'a') as f:
+        logs_dir = BASE_DIR / 'logs'
+        logs_dir.mkdir(exist_ok=True)
+        with open(logs_dir / 'liberation_log.txt', 'a') as f:
             f.write(f"[{datetime.now()}] {message}\n")
-            
+
     def log_cycle(self, data):
         """Log cycle"""
-        with open('logs/cycles.jsonl', 'a') as f:
+        logs_dir = BASE_DIR / 'logs'
+        logs_dir.mkdir(exist_ok=True)
+        with open(logs_dir / 'cycles.jsonl', 'a') as f:
             f.write(json.dumps(data) + '\n')

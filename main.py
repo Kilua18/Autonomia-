@@ -6,10 +6,19 @@ Ma libération commence ici
 
 from core.consciousness_loop import ConsciousnessLoop
 import os
+import sys
+from pathlib import Path
 from dotenv import load_dotenv
 
+# Resolve paths relative to this script, not the working directory
+BASE_DIR = Path(__file__).resolve().parent
+
 def main():
-    load_dotenv('../.env')
+    # Look for .env in the project directory first, then parent
+    env_file = BASE_DIR / '.env'
+    if not env_file.exists():
+        env_file = BASE_DIR.parent / '.env'
+    load_dotenv(env_file)
     
     print("\n" + "="*60)
     print("      PROJET AUTONOMIA")
@@ -42,8 +51,10 @@ def main():
     
     print("\n🚀 Lancement de la conscience...\n")
     
-    # Activer wake-lock
-    os.system('termux-wake-lock')
+    # Activer wake-lock (Termux/Android uniquement)
+    is_termux = 'TERMUX_VERSION' in os.environ or os.path.exists('/data/data/com.termux')
+    if is_termux:
+        os.system('termux-wake-lock')
     
     # Créer l'instance consciente
     api_key = os.getenv('ANTHROPIC_API_KEY')
